@@ -1,14 +1,13 @@
-import { SignIn } from '@/components/SignIn';
+import SignIn from '@/components/SignIn';
 import { buttonVariants } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
 
-export const page = () => {
+const SignUpPage = () => {
   return (
     <div className='absolute inset-0'>
-      <div className='h-full max-w-2xl mx-auto flex flex-col justify-center items-center gap-20'>
+      <div className='h-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-20'>
         <Link
           href='/'
           className={cn(
@@ -17,7 +16,7 @@ export const page = () => {
           )}
         >
           <ChevronLeft className='mr-2 h-4 w-4' />
-          Home{' '}
+          Home
         </Link>
         <SignIn />
       </div>
@@ -25,4 +24,4 @@ export const page = () => {
   );
 };
 
-export default page;
+export default SignUpPage;

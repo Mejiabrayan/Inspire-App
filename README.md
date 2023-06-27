@@ -50,4 +50,4 @@ Without their exceptional work, Breadit would not have been possible.
 
 If you have any questions, suggestions, or feedback, please feel free to reach out to us at [mejiabrayan@protonmail.com](mailto:mejiabrayan@protonmail.com).
 
-Thank you for choosing Breadit! We hope you enjoy using it.
+Thank you for choosing Breadit! We hope you enjoy using it. 
