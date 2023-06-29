@@ -25,6 +25,9 @@ const page = async ({ params }: PageProps) => {
           comments: true,
           subreddit: true,
         },
+        orderBy: {
+          createdAt: 'desc',
+        },
         take: INFINITE_SCROLLING_PAGINATION_RESULTS,
       },
     },
@@ -34,12 +37,12 @@ const page = async ({ params }: PageProps) => {
 
   return (
     <>
-      <h1 className='font-bold text-3xl md:text-4xl h-14'>
+      <h1 className='font-bold text-3xl md:text-4xl h-14 bg-gradient-to-r text-transparent bg-clip-text from-slate-800 to-gray-500'>
         r/{subreddit.name}
       </h1>
       <MiniCreatePost session={session} />
       {/* TODO: show posts in user feed */}
-      <PostFeed />
+      <PostFeed initialPosts={subreddit.posts} subredditName={subreddit.name} />
     </>
   );
 };

@@ -1,6 +1,6 @@
-# Breadit - A Modern Fullstack Reddit Clone || will change name into something else
+# Inspire - A Modern Fullstack Reddit like clone but where like minded individuals can post about what inspires them
 
-Breadit is a modern fullstack Reddit clone built with the Next.js App Router, TypeScript, and Tailwind. It aims to replicate the core features of Reddit while providing a sleek and responsive user interface.
+Inspire App is a modern fullstack Reddit clone built with the Next.js App Router, TypeScript, and Tailwind. It aims to replicate the core features of Reddit while providing a sleek and responsive user interface.
 
 ## Features
 
@@ -13,11 +13,11 @@ Breadit is a modern fullstack Reddit clone built with the Next.js App Router, Ty
 - **Beautiful Post Editor:** Create stunning and engaging posts with a sleek and highly functional post editor.
 - **Image Uploads & Link Previews:** Seamlessly upload and share images, and get rich link previews for shared URLs.
 - **Full Comment Functionality:** Engage in discussions with a comprehensive comment system that supports nested replies.
-- **... and much more:** Breadit offers a wide range of features that aim to provide a complete Reddit-like experience.
+- **... and much more:** Inpsire offers a wide range of features that aim to provide a complete Reddit-like experience.
 
 ## Getting Started
 
-To get started with Breadit, follow these steps:
+To get started with Inpsire, follow these steps:
 
 1. Clone the repository: `git clone <repository-url>`
 2. Install dependencies: `npm install`
@@ -28,7 +28,7 @@ Make sure to customize and adapt the project according to your specific needs.
 
 ## Contributing
 
-We welcome contributions to Breadit! If you would like to contribute, please follow the guidelines outlined in [CONTRIBUTING.md](link-to-contributing-md) to get started.
+We welcome contributions to Inpsire! If you would like to contribute, please follow the guidelines outlined in [CONTRIBUTING.md](link-to-contributing-md) to get started.
 
 ## License
 
@@ -44,10 +44,10 @@ We would like to express our gratitude to the following projects and communities
 - [NextAuth](https://next-auth.js.org/)
 - [React-Query](https://react-query.tanstack.com/)
 
-Without their exceptional work, Breadit would not have been possible.
+Without their exceptional work, Inpsire would not have been possible.
 
 ## Contact
 
 If you have any questions, suggestions, or feedback, please feel free to reach out to us at [mejiabrayan@protonmail.com](mailto:mejiabrayan@protonmail.com).
 
-Thank you for choosing Breadit! We hope you enjoy using it. 
+Thank you for choosing Inpsire! We hope you enjoy using it. 
