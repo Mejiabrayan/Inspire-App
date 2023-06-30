@@ -1,31 +1,31 @@
-import CommentsSection from '@/components/CommentsSection'
-import EditorOutput from '@/components/EditorOutput'
-import PostVoteServer from '@/components/post-vote/PostVoteServer'
-import { buttonVariants } from '@/components/ui/Button'
-import { db } from '@/lib/db'
-import { redis } from '@/lib/redis'
-import { formatTimeToNow } from '@/lib/utils'
-import { CachedPost } from '@/types/redis'
-import { Post, User, Vote } from '@prisma/client'
-import { ArrowBigDown, ArrowBigUp, Loader2 } from 'lucide-react'
-import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
+import CommentsSection from '@/components/CommentsSection';
+import EditorOutput from '@/components/EditorOutput';
+import PostVoteServer from '@/components/post-vote/PostVoteServer';
+import { buttonVariants } from '@/components/ui/Button';
+import { db } from '@/lib/db';
+import { redis } from '@/lib/redis';
+import { formatTimeToNow } from '@/lib/utils';
+import { CachedPost } from '@/types/redis';
+import { Post, User, Vote } from '@prisma/client';
+import { ArrowBigDown, ArrowBigUp, Loader2 } from 'lucide-react';
+import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 interface SubRedditPostPageProps {
   params: {
-    postId: string
-  }
+    postId: string;
+  };
 }
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 
 const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
   const cachedPost = (await redis.hgetall(
     `post:${params.postId}`
-  )) as CachedPost
+  )) as CachedPost;
 
-  let post: (Post & { votes: Vote[]; author: User }) | null = null
+  let post: (Post & { votes: Vote[]; author: User }) | null = null;
 
   if (!cachedPost) {
     post = await db.post.findFirst({
@@ -36,10 +36,10 @@ const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
         votes: true,
         author: true,
       },
-    })
+    });
   }
 
-  if (!post && !cachedPost) return notFound()
+  if (!post && !cachedPost) return notFound();
 
   return (
     <div>
@@ -56,7 +56,7 @@ const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
                 include: {
                   votes: true,
                 },
-              })
+              });
             }}
           />
         </Suspense>
@@ -74,14 +74,16 @@ const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
           <Suspense
             fallback={
               <Loader2 className='h-5 w-5 animate-spin text-zinc-500' />
-            }>
-            <CommentsSection  postId={post?.id ?? cachedPost.id} />
+            }
+          >
+            {/* @ts-expect-error server component */}
+            <CommentsSection postId={post?.id ?? cachedPost.id} />
           </Suspense>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 function PostVoteShell() {
   return (
@@ -101,7 +103,7 @@ function PostVoteShell() {
         <ArrowBigDown className='h-5 w-5 text-zinc-700' />
       </div>
     </div>
-  )
+  );
 }
 
-export default SubRedditPostPage
+export default SubRedditPostPage;

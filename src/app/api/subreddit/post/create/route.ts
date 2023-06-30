@@ -32,15 +32,17 @@ export async function POST(req: Request) {
         subredditId,
       },
     });
-    return new Response('OK');
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return new Response(error.message, {
-        status: 400,
+      return new Response('invalid request data passed', {
+        status: 422,
       });
     }
     return new Response(
-      'Could not post to subreddit at this time. Please try again later.'
+      'Could not post to subreddit at this time. Please try again later.',
+      {
+        status: 500,
+      }
     );
   }
 }

@@ -28,6 +28,7 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@index([userId])
 }
 
 model Session {
@@ -36,6 +37,8 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model User {
@@ -69,6 +72,7 @@ model Subreddit {
   subscribers Subscription[]
 
   @@index([name])
+  @@index([creatorId])
 }
 
 model Subscription {
@@ -78,6 +82,8 @@ model Subscription {
   subredditId String
 
   @@id([userId, subredditId])
+  @@index([subredditId])
+  @@index([userId])
 }
 
 model Post {
@@ -94,6 +100,9 @@ model Post {
 
   comments Comment[]
   votes    Vote[]
+
+  @@index([authorId])
+  @@index([subredditId])
 }
 
 model Comment {
@@ -111,6 +120,10 @@ model Comment {
 
   votes     CommentVote[]
   commentId String?
+
+  @@index([replyToId])
+  @@index([postId])
+  @@index([authorId])
 }
 
 enum VoteType {
@@ -126,6 +139,8 @@ model Vote {
   type   VoteType
 
   @@id([userId, postId])
+  @@index([postId])
+  @@index([userId])
 }
 
 model CommentVote {
@@ -136,4 +151,6 @@ model CommentVote {
   type      VoteType
 
   @@id([userId, commentId])
+  @@index([userId])
+  @@index([commentId])
 }

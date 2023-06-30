@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default async function Home() {
   const session = await getAuthSession();
   return (
-    <>
+    <div>
       <h1 className='font-bold text-3xl md:text-4xl'>Your Feed</h1>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6'>
         {/* @ts-expect-error server component*/}
@@ -40,6 +40,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
